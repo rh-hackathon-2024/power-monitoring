@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-go-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-go-app
+  template:
+    metadata:
+      labels:
+        app: hello-go-app
+    spec:
+      containers:
+      - name: hello-go-app
+        image: quay.io/rh-ee-anataraj/hello-go-app:latest
+        ports:
+        - containerPort: 8080
